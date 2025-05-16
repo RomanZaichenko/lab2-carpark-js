@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Cars</title>
+    <link rel="stylesheet" href="styles/add_car.css">
+</head>
+<body>
+<nav>
+    <a href="cars.html" class="nav-link">See Cars</a>
+</nav>
+
+<h2>Add / Update / Delete Car</h2>
+
+<form id="carForm">
+    <select id="manufacturerSelect" name="manufacturer_id" required>
+        <option disabled selected value="">Select Manufacturer</option>
+    </select>
+    <input name="model" placeholder="Model" required />
+    <input name="fuel_consumption" placeholder="Fuel consumption" required />
+    <input name="kilometrage" placeholder="Kilometrage" required />
+    <input name="year" placeholder="Year" required />
+    <input name="fuel_capacity" placeholder="Fuel capacity" required />
+    <button type="submit">Add Car</button>
+</form>
+
+<form class="update-form" id="editForm">
+    <select id="carSelect" required>
+        <option disabled selected value="">Select Car to Edit</option>
+    </select>
+    <select id="editManufacturer" required></select>
+    <input id="editModel" placeholder="Model" required />
+    <input id="editFuel" placeholder="Fuel consumption" required />
+    <input id="editKM" placeholder="Kilometrage" required />
+    <input id="editYear" placeholder="Year" required />
+    <input id="editCapacity" placeholder="Fuel capacity" required />
+    <button type="submit">Update Car</button>
+</form>
+
+<form class="update-form" id="deleteForm">
+    <select id="deleteCarSelect" required>
+        <option disabled selected value="">Select Car to Delete</option>
+    </select>
+    <button type="submit">Delete Car</button>
+</form>
+
+<script src="scripts/add_car.js"></script>
+</body>
+</html>
