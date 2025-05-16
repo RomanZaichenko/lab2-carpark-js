@@ -34,15 +34,27 @@ document.getElementById('carForm').addEventListener('submit', async e => {
   e.preventDefault();
   const formData = new FormData(e.target);
   const body = Object.fromEntries(formData);
-  await fetch('/cars', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-  alert('Car added');
-  e.target.reset();
-  loadCars();
+  try {
+    const res = await fetch('/cars', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || 'Помилка в опрацюванні запиту');
+    }
+
+    alert(data.message || 'Авто додано');
+    e.target.reset();
+    loadCars();
+  } catch (err) {
+    alert(err.message);
+  }
 });
+
 
 document.getElementById('editForm').addEventListener('submit', async e => {
   e.preventDefault();
