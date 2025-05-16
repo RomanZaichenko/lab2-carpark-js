@@ -3,54 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Car List</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-
-        nav {
-            margin-bottom: 20px;
-        }
-
-        .nav-link {
-            margin-right: 15px;
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: bold;
-        }
-
-        .nav-link:hover {
-            text-decoration: underline;
-        }
-
-        h2 {
-            margin-bottom: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #007BFF;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/cars.css">
 </head>
 <body>
 <nav>
@@ -67,24 +20,6 @@
     <tbody></tbody>
 </table>
 
-<script>
-  fetch("/cars")
-    .then(res => res.json())
-    .then(data => {
-      const tbody = document.querySelector("#carTable tbody");
-      data.forEach(car => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${car.manufacturer}</td>
-            <td>${car.model}</td>
-            <td>${car.fuel_consumption}</td>
-            <td>${car.kilometrage}</td>
-            <td>${car.year}</td>
-            <td>${car.fuel_capacity}</td>
-          `;
-        tbody.appendChild(tr);
-      });
-    });
-</script>
+<script src="scripts/cars.js"></script>
 </body>
 </html>
